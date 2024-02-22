@@ -4,18 +4,10 @@ const cors = require("cors");
 
 app.use(cors(
     {
-        origin: [
-          "http://localhost:8080",
-          "http://localhost:3000",
-          "http://18.234.53.21", // react localhost mobile ip
-          "http://3.109.156.217",
-          "https://test.rentofurniture.com"
-        ],
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-        preflightContinue: false,
-        optionsSuccessStatus: 204,
-        credentials: true,
-      }
+        origin: 'http://18.234.53.21', // allow only requests from this origin
+        methods: ['GET', 'POST'], // allow only GET and POST requests
+        allowedHeaders: ['Content-Type', 'Authorization'] // allow only specified headers
+    }
 ))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
